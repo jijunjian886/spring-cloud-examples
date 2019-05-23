@@ -1,6 +1,5 @@
 package com.neo.remote;
 
-import com.neo.remote.HelloRemote;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -9,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Component
 public class HelloRemoteHystrix implements HelloRemote{
-
     @Override
-    public String hello(@RequestParam(value = "name") String name) {
-        return "hello " +name+", this messge send failed ";
+    public String say(@RequestParam(value = "name") String name) {
+        return "Hello " + name + ", this message send failed ";
     }
 }

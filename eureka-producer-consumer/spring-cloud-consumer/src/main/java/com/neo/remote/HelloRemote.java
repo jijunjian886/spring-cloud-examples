@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @FeignClient(name= "spring-cloud-producer")
 public interface HelloRemote {
-
     @GetMapping(value = "/hello/say")
     String say(@RequestParam(value = "name") String name);
 }
