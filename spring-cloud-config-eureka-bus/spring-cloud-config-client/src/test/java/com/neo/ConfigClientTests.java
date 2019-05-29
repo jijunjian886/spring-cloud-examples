@@ -8,15 +8,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApplicationTests {
-
+public class ConfigClientTests {
 	@Value("${neo.hello}")
 	private  String  hello;
 
 	@Test
 	public void contextLoads() {
 		System.out.println("************************************************************");
-		System.out.println("hello value : "+hello);
+		System.out.println("hello value : " + hello);
 		System.out.println("************************************************************");
 	}
 

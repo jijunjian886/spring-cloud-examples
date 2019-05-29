@@ -1,0 +1,39 @@
+# bootstrap.properties的加载先于application.properties
+
+spring:
+  profiles:
+    active: test
+  cloud:
+    config:
+      discovery:
+        # 开启config服务发现支持
+        enabled: true
+        # 指定server端的serviceId，就是server端spring.application.name的值
+        service-id: spring-cloud-config-server
+      # 对应git的分支，如果配置中心使用的是本地存储，则该参数无用
+      label: master
+      # 对应{application}部分
+      name: neo-config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      profile: dev
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      profile: test
+---
+spring:
+  profiles: prod
+  cloud:
+    config:
+      profile: prod
