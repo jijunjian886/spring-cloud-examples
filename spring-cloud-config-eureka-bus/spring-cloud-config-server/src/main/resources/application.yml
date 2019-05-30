@@ -12,6 +12,9 @@ spring:
           search-paths: config-repo                                   # git仓库地址下的相对地址，可以配置多个，用,分割。
           username:                                                   # git仓库的账号
           password:                                                   # git仓库的密码
+    bus:
+      trace:
+        enabled: true
   rabbitmq:
     host: 127.0.0.1
     port: 5672
@@ -23,11 +26,12 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
 
-# Spring Boot 1.5.X 以上默认开通了安全认证，为总线刷新暴露端点，
-# 总线刷新：curl -X POST http://localhost:8700/actuator/bus-refresh/，加参数可局部刷新-{spring-cloud-config-client:8801}、{spring-cloud-config-client:**}
+# Spring Boot 1.5.X 以上默认开通了安全认证，为总线刷新、跟踪暴露端点
+# 总线刷新：curl -X POST http://localhost:8700/actuator/bus-refresh/，加参数-{spring-cloud-config-client:8801}、{spring-cloud-config-client:**}可局部刷新
+# 总线跟踪：curl -X GET http://localhost:8700/actuator/httptrace/
 management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+        include: bus-refresh,httptrace
 

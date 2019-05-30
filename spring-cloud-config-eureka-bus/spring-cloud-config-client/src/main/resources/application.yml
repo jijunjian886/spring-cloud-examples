@@ -1,14 +1,9 @@
 server:
-  port: 8801
+  port: 8800
 
 spring:
   application:
     name: spring-cloud-config-client
-  cloud:
-      bus:
-        enabled: true
-        trace:
-          enabled: true
   rabbitmq:
     host: 127.0.0.1
     port: 5672
