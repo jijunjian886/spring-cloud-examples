@@ -65,7 +65,7 @@ public class RedisConfig {
      */
     @RefreshScope
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory ) {
+    public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate();
         redisTemplate.setConnectionFactory(lettuceConnectionFactory);
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
