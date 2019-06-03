@@ -10,6 +10,11 @@ public class HelloController {
     @GetMapping("/say")
     public String say(String name) {
         System.err.println("I say...");
+        try {
+            Thread.sleep(1000000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "Hello " + name + "，this is first message";
     }
 }

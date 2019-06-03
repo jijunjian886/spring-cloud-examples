@@ -37,12 +37,10 @@ public class ProducerFallback implements FallbackProvider {
      */
     @Override
     public ClientHttpResponse fallbackResponse(String service, Throwable throwable) {
-        String msg = "The service " + service + " is unavailable !";
         if (throwable != null && throwable.getCause() != null) {
             logger.error("Throwable {}", throwable.getCause().getMessage());
-            msg = "The service " + service + " has an error !";
         }
-
+        String msg = "The service " + service + " is unavailable !";
         return fallbackResponse(msg);
     }
 
