@@ -1,19 +1,20 @@
 package com.neo.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/hello")
 public class HelloController {
-    private final Logger logger = LoggerFactory.getLogger(FallbackProvider.class);
-
-    @RequestMapping("/hello")
-    public String index(@RequestParam String name) {
-        logger.info("request  name is "+name);
-        return "hello "+name+"，this is first messge";
+    @GetMapping("/say")
+    public String say(String name) {
+        System.err.println("I say...");
+        /*try {
+            Thread.sleep(1000000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+        return "Hello " + name + "，this is first message";
     }
 }
